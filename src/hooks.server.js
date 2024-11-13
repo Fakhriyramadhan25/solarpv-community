@@ -2,33 +2,31 @@
 import { serialize } from 'cookie';
 
 export async function handle({ event, resolve }) {
-  // Access the __vercel_live_token cookie from the incoming request
+  // Access the __vercel_live_token cookie from the incoming request (for debugging)
   const vercelLiveToken = event.cookies.get('__vercel_live_token');
-
-  // If you want to log or use the token, you can check its value here
-  console.log('Vercel Live Token:', vercelLiveToken);
+  console.log('Current __vercel_live_token:', vercelLiveToken);
 
   // Get the response from the event
   const response = await resolve(event);
 
-  // If the token is missing or invalid, you can choose to set a new cookie (if necessary)
+  // If no cookie is set, set it manually (fallback behavior)
   if (!vercelLiveToken) {
-    // Set a default token value or generate your own value if required
-    const defaultTokenValue = 'Edinburgher@2021';
-
     const cookieOptions = {
       path: '/',
-      httpOnly: true,  // Cookie cannot be accessed via JavaScript
-      secure: true,    // Cookie will only be sent over HTTPS
-      sameSite: 'none' // Required for cross-site cookies
+      httpOnly: true,   // Cookie cannot be accessed via JavaScript
+      secure: true,     // Cookie will only be sent over HTTPS
+      sameSite: 'none'  // Required for cross-site cookies
     };
 
+    // Log to debug
+    console.log('Setting __vercel_live_token cookie');
+
+    // Set the cookie with a sample value (adjust this logic if necessary)
     response.headers.set(
       'Set-Cookie',
-      serialize('__vercel_live_token', defaultTokenValue, cookieOptions)
+      serialize('__vercel_live_token', 'Edinburgher@2021', cookieOptions)
     );
   }
 
-  // Return the modified response
   return response;
 }
