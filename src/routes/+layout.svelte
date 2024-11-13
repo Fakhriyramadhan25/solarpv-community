@@ -48,8 +48,8 @@
 </script>
 
 <svelte:head>
-  <title>Solar API demo</title>
-  <meta name="description" content="Solar API demo" />
+  <title>Energy Community R2M</title>
+  <meta name="description" content="Energy Community R2M" />
 </svelte:head>
 
 <main class="surface on-surface-text body-medium flex flex-col w-screen h-screen">
