@@ -59,8 +59,24 @@
       }
     });
   });
+
+
+  
+   // Geocode function with restrictions to Sevilla
+   async function geocodeAddress(address: string): Promise<google.maps.GeocoderResult | null> {
+    const geocoder = new google.maps.Geocoder();
+    const response = await geocoder.geocode({
+      address,
+      componentRestrictions: {
+        administrativeArea: 'Sevilla',
+        country: 'ES',
+      },
+    });
+    return response.results[0] || null;
+  }
+
 </script>
 
-<md-filled-text-field bind:this={textFieldElement} label="Search an address" value={initialValue}>
-  <md-icon slot="leadingicon">search</md-icon>
+<md-filled-text-field bind:this={textFieldElement} label="Buscar una dirección" value={initialValue}>
+  <md-icon slot="leadingicon">busque</md-icon>
 </md-filled-text-field>

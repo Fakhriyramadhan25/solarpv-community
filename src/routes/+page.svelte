@@ -33,6 +33,9 @@
   let location: google.maps.LatLng | undefined;
   const zoom = 19;
 
+  // Coordinates for the heart of Sevilla
+  const sevillaCoordinates = { lat: 37.3886, lng: -5.9823 };
+
   // Initialize app.
   let mapElement: HTMLElement;
   let map: google.maps.Map;
@@ -59,7 +62,8 @@
     const geocoderResult = geocoderResponse.results[0];
 
     // Initialize the map at the desired location.
-    location = geocoderResult.geometry.location;
+    location = geocoderResult.geometry.location; 
+    // location = new google.maps.LatLng(sevillaCoordinates.lat, sevillaCoordinates.lng); 
     map = new mapsLibrary.Map(mapElement, {
       center: location,
       zoom: zoom,
@@ -72,6 +76,8 @@
       zoomControl: false,
     });
   });
+
+
 </script>
 
 <!-- Top bar -->
@@ -86,7 +92,7 @@
         <SearchBar bind:location {placesLibrary} {map} initialValue={defaultPlace.name} />
       {/if}
 
-      <div class="p-4 surface-variant outline-text rounded-lg space-y-3">
+      <!-- <div class="p-4 surface-variant outline-text rounded-lg space-y-3">
         <p>
           <a
             class="primary-text"
@@ -103,7 +109,7 @@
           <b>Click on an area below</b>
           to see what type of information the Solar API can provide.
         </p>
-      </div>
+      </div> -->
 
       {#if location}
         <Sections {location} {map} {geometryLibrary} {googleMapsApiKey} />
@@ -111,7 +117,7 @@
 
       <div class="grow" />
 
-      <div class="flex flex-col items-center w-full">
+      <!-- <div class="flex flex-col items-center w-full">
         <md-text-button
           href="https://github.com/googlemaps-samples/js-solar-potential"
           target="_blank"
@@ -119,10 +125,10 @@
           View code on GitHub
           <img slot="icon" src="github-mark.svg" alt="GitHub" width="16" height="16" />
         </md-text-button>
-      </div>
+      </div> -->
 
       <span class="pb-4 text-center outline-text label-small">
-        This is not an officially supported Google product.
+        R2M solution - Energy Communities
       </span>
     </div>
   </aside>

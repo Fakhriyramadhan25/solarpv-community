@@ -47,7 +47,7 @@
   export let map: google.maps.Map;
 
   const icon = 'home';
-  const title = 'Building Insights endpoint';
+  const title = 'Punto final de Building Insights';
 
   let requestSent = false;
   let requestError: RequestError | undefined;
@@ -163,7 +163,7 @@
   >
     <div class="flex flex-col space-y-2 px-2">
       <span class="outline-text label-medium">
-        <b>{title}</b> provides data on the location, dimensions & solar potential of a building.
+        <b>{title}</b> proporciona datos sobre la ubicación, las dimensiones y el potencial solar de un edificio.
       </span>
 
       <InputPanelsCount
@@ -178,11 +178,11 @@
       />
       <InputBool bind:value={showPanels} label="Solar panels" />
 
-      <div class="grid justify-items-end">
+      <!-- <div class="grid justify-items-end">
         <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
           API response
         </md-filled-tonal-button>
-      </div>
+      </div> -->
 
       <md-dialog bind:this={apiResponseDialog}>
         <div slot="headline">

@@ -45,7 +45,7 @@
   export let map: google.maps.Map;
 
   const icon = 'layers';
-  const title = 'Data Layers endpoint';
+  const title = 'Punto final de Capas de Datos';
 
   const dataLayerOptions: Record<LayerId | 'none', string> = {
     none: 'No layer',
@@ -75,7 +75,7 @@
   let dataLayersResponse: DataLayersResponse | undefined;
   let requestError: RequestError | undefined;
   let apiResponseDialog: MdDialog;
-  let layerId: LayerId | 'none' = 'monthlyFlux';
+  let layerId: LayerId | 'none' = 'annualFlux';
   let layer: Layer | undefined;
   let imageryQuality: 'HIGH' | 'MEDIUM' | 'LOW';
 
@@ -221,8 +221,8 @@
   <Expandable bind:section={expandedSection} {icon} {title} subtitle={dataLayerOptions[layerId]}>
     <div class="flex flex-col space-y-2 px-2">
       <span class="outline-text label-medium">
-        <b>{title}</b> provides raw and processed imagery and granular details on an area surrounding
-        a location.
+        <b>{title}</b> proporciona imágenes en bruto y procesadas y detalles granulares sobre un área que rodea
+        de un lugar.
       </span>
 
       <Dropdown
@@ -245,14 +245,14 @@
 
         <span class="outline-text label-medium">
           {#if imageryQuality == 'HIGH'}
-            <p><b>Low altitude aerial imagery</b> available.</p>
-            <p>Imagery and DSM data were processed at <b>10 cm/pixel</b>.</p>
+            <p><b>Imágenes aéreas a baja altitud</b> disponible.</p>
+            <p>Las imágenes y los datos DSM se procesaron en <b>10 cm/pixel</b>.</p>
           {:else if imageryQuality == 'MEDIUM'}
-            <p><b>AI augmented aerial imagery</b> available.</p>
-            <p>Imagery and DSM data were processed at <b>25 cm/pixel</b>.</p>
+            <p><b>Imágenes aéreas aumentadas con IA</b> disponible.</p>
+            <p>Las imágenes y los datos DSM se procesaron en <b>25 cm/pixel</b>.</p>
           {:else if imageryQuality == 'LOW'}
-            <p><b>AI augmented aerial or satellite imagery</b> available.</p>
-            <p>Imagery and DSM data were processed at <b>50 cm/pixel</b>.</p>
+            <p><b>Aumento de las imágenes aéreas o por satélite</b> disponible.</p>
+            <p>Las imágenes y los datos DSM se procesaron en <b>50 cm/pixel</b>.</p>
           {/if}
         </span>
 
@@ -265,9 +265,9 @@
       {/if}
       <div class="flex flex-row">
         <div class="grow" />
-        <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
+        <!-- <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
           API response
-        </md-filled-tonal-button>
+        </md-filled-tonal-button> -->3
       </div>
 
       <md-dialog bind:this={apiResponseDialog}>

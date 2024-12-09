@@ -44,19 +44,19 @@
   export let defaultPanelCapacityWatts: number;
 
   const icon = 'payments';
-  const title = 'Solar Potential analysis';
+  const title = 'Análisis del potencial solar';
 
   let costChart: HTMLElement;
   let showAdvancedSettings = false;
 
   // [START solar_potential_calculations]
   // Solar configuration, from buildingInsights.solarPotential.solarPanelConfigs
-  let panelsCount = 20;
+  let panelsCount = 30;
   let yearlyEnergyDcKwh = 12000;
 
   // Basic settings
   let monthlyAverageEnergyBill: number = 300;
-  let energyCostPerKwh = 0.31;
+  let energyCostPerKwh = 0.15;
   let panelCapacityWatts = 400;
   let solarIncentives: number = 7000;
   let installationCostPerWatt: number = 4.0;
@@ -204,12 +204,12 @@
   bind:section={expandedSection}
   {icon}
   {title}
-  subtitle="Values are only placeholders."
-  subtitle2="Update with your own values."
+  subtitle="Los valores son sólo marcadores de posición."
+  subtitle2="Actualícelos con sus propios valores."
   secondary
 >
   <div class="flex flex-col space-y-4 pt-1">
-    <div class="p-4 mb-4 surface-variant outline-text rounded-lg">
+    <!-- <div class="p-4 mb-4 surface-variant outline-text rounded-lg">
       <p class="relative inline-flex items-center space-x-2">
         <md-icon class="md:w-6 w-8">info</md-icon>
         <span>
@@ -224,7 +224,7 @@
           </a>
         </span>
       </p>
-    </div>
+    </div> -->
 
     <InputMoney
       bind:value={monthlyAverageEnergyBillInput}
@@ -325,7 +325,7 @@
       </div>
     {/if}
 
-    <div class="grid justify-items-end">
+    <!-- <div class="grid justify-items-end">
       <md-filled-tonal-button
         trailing-icon
         role={undefined}
@@ -335,7 +335,7 @@
         More details
         <md-icon slot="icon">open_in_new</md-icon>
       </md-filled-tonal-button>
-    </div>
+    </div> -->
   </div>
 </Expandable>
 
