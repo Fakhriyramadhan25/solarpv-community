@@ -32,6 +32,9 @@ const config = {
     // adapter: adapter({
     //   out: 'build'
     // }),
+    files: {
+      assets: 'public', // Default is 'public', so this is usually not required
+    },
     adapter: vercel(),
 
     // https://kit.svelte.dev/docs/configuration#version

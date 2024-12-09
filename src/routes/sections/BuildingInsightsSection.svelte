@@ -38,7 +38,7 @@
   export let expandedSection: string;
   export let buildingInsights: BuildingInsightsResponse | undefined;
   export let configId: number | undefined;
-  export let panelCapacityWatts: number;
+  export let panelCapacityWatts: number = 0;
   export let showPanels: boolean;
 
   export let googleMapsApiKey: string;
@@ -132,7 +132,9 @@
   <div class="error-container on-error-container-text">
     <Expandable section={title} icon="error" {title} subtitle={requestError.error.status}>
       <div class="grid place-items-center py-2 space-y-4">
-        <div class="grid place-items-center">
+        <p>Lo sentimos, no hay datos disponibles en esta ubicación.</p>
+
+        <!-- <div class="grid place-items-center">
           <p class="body-medium">
             Error on <code>buildingInsights</code> request
           </p>
@@ -143,7 +145,7 @@
         <md-filled-button role={undefined} on:click={() => showSolarPotential(location)}>
           Retry
           <md-icon slot="icon">refresh</md-icon>
-        </md-filled-button>
+        </md-filled-button> -->
       </div>
     </Expandable>
   </div>

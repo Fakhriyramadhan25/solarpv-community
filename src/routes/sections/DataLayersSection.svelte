@@ -297,32 +297,33 @@
         <div class="flex flex-col space-y-4">
           <p class="outline-text">
             {#if layerId == 'mask'}
-              The building mask image: one bit per pixel saying whether that pixel is considered to
-              be part of a rooftop or not.
+            La imagen de máscara de edificio: un bit por píxel que indica si ese píxel se considera o no parte de un tejado.
+            parte de un tejado o no.
             {:else if layerId == 'dsm'}
-              An image of the DSM (Digital Surface Model) of the region. Values are in meters above
-              EGM96 geoid (i.e., sea level). Invalid locations (where we don't have data) are stored
-              as -9999.
+            Imagen del MDS (Modelo Digital de Superficie) de la región. Los valores están en metros sobre
+            geoide EGM96 (es decir, el nivel del mar). Las ubicaciones no válidas (de las que no tenemos datos) se almacenan
+            como -9999.
             {:else if layerId == 'rgb'}
-              An image of RGB data (aerial photo) of the region.
+            Una imagen de datos RGB (foto aérea) de la región.
             {:else if layerId == 'annualFlux'}
-              The annual flux map (annual sunlight on roofs) of the region. Values are kWh/kW/year.
-              This is unmasked flux: flux is computed for every location, not just building
-              rooftops. Invalid locations are stored as -9999: locations outside our coverage area
-              will be invalid, and a few locations inside the coverage area, where we were unable to
-              calculate flux, will also be invalid.
+            Mapa de flujo anual (luz solar anual sobre tejados) de la región. Los valores son kWh/kW/año.
+            Se trata de un flujo no enmascarado: el flujo se calcula para cada lugar, no sólo para los tejados de los edificios.
+            edificios. Las ubicaciones no válidas se almacenan como -9999: las ubicaciones fuera de nuestra zona de cobertura
+            fuera de nuestra zona de cobertura no serán válidas, y algunas ubicaciones dentro de la zona de cobertura, 
+            donde no hemos podido calcular el flujo, tampoco serán válidas.
+            calcular el flujo.
             {:else if layerId == 'monthlyFlux'}
-              The monthly flux map (sunlight on roofs, broken down by month) of the region. Values
-              are kWh/kW/year. The GeoTIFF imagery file pointed to by this URL will contain twelve
-              bands, corresponding to January...December, in order.
+            El mapa de flujo mensual (luz solar en los tejados, desglosada por meses) de la región. Los valores
+            son kWh/kW/año. El archivo de imágenes GeoTIFF al que apunta esta URL contendrá doce
+            bandas, correspondientes a enero...diciembre, por orden.
             {:else if layerId == 'hourlyShade'}
-              Twelve URLs for hourly shade, corresponding to January...December, in order. Each
-              GeoTIFF imagery file will contain 24 bands, corresponding to the 24 hours of the day.
-              Each pixel is a 32 bit integer, corresponding to the (up to) 31 days of that month; a
-              1 bit means that the corresponding location is able to see the sun at that day, of
-              that hour, of that month. Invalid locations are stored as -9999 (since this is
-              negative, it has bit 31 set, and no valid value could have bit 31 set as that would
-              correspond to the 32nd day of the month).
+            Doce URL de sombra horaria, correspondientes a enero...diciembre, por orden. Cada archivo de imágenes
+            archivo de imágenes GeoTIFF contendrá 24 bandas, correspondientes a las 24 horas del día.
+            Cada píxel es un número entero de 32 bits, correspondiente a los (hasta) 31 días de ese mes; un
+            1 bit significa que el lugar correspondiente puede ver el sol ese día, a esa hora, de ese mes.
+            esa hora, de ese mes. Las ubicaciones no válidas se almacenan como -9999 (dado que es negativo, tiene el bit 31 activado.
+            negativo, tiene el bit 31 activado, y ningún valor válido podría tener el bit 31 activado, ya que correspondería al día 32 del mes.
+            correspondería al día 32 del mes).
             {/if}
           </p>
 

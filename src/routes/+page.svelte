@@ -25,10 +25,16 @@
   import SearchBar from './components/SearchBar.svelte';
   import Sections from './sections/Sections.svelte';
 
+  // name: 'Rinconada Library',
+  // address: '1213 Newell Rd, Palo Alto, CA 94303',
+
+  // name: 'CEIP Hermanos Machado',
+  //   address: 'Barriada San Diego, Av. de Pino Montano, S/N, Norte, 41015 Sevilla, Spanyol',
+
   const googleMapsApiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
   const defaultPlace = {
-    name: 'Rinconada Library',
-    address: '1213 Newell Rd, Palo Alto, CA 94303',
+    name: 'Centro de consultas externas Policlínico Virgen Macarena',
+    address: 'C. San Juan de Ribera, 1, 41009 Sevilla, Spanyol',
   };
   let location: google.maps.LatLng | undefined;
   const zoom = 19;
@@ -126,6 +132,10 @@
           <img slot="icon" src="github-mark.svg" alt="GitHub" width="16" height="16" />
         </md-text-button>
       </div> -->
+
+      <div class="flex flex-col items-center w-full">
+        <img src="/granvega.png" alt="GitHub" width="80" height="80" />
+      </div>
 
       <span class="pb-4 text-center outline-text label-small">
         R2M solution - Energy Communities
