@@ -133,9 +133,9 @@
         </md-text-button>
       </div> -->
 
-      <div class="flex flex-col items-center w-full">
+      <!-- <div class="flex flex-col items-center w-full">
         <img src="/granvega.png" alt="GitHub" width="80" height="80" />
-      </div>
+      </div> -->
 
       <span class="pb-4 text-center outline-text label-small">
         R2M solution - Energy Communities
