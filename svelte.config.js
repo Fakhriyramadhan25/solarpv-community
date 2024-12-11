@@ -40,7 +40,7 @@ const config = {
       handleHttpError: ({ status, path, referrer, referenceType }) => {
         if (status === 404 && path === '/favicon.png') {
           console.warn(`Ignoring 404 error for missing favicon: ${path}`);
-          return;
+          return;8
         }
         throw new Error(`${status} on ${path} (referrer: ${referrer})`);
       }
