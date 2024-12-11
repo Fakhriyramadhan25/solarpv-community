@@ -165,7 +165,7 @@
       );
 
       const data = google.visualization.arrayToDataTable([
-        ['Year', 'Solar', 'No solar'],
+        ['Año', 'Solar', 'No solar'],
         [year.toString(), 0, 0],
         ...cumulativeCostsWithSolar.map((_, i) => [
           (year + i + 1).toString(),
@@ -178,7 +178,7 @@
       const googleCharts = google.charts as any;
       const chart = new googleCharts.Line(costChart);
       const options = googleCharts.Line.convertOptions({
-        title: `Cost analysis for ${installationLifeSpan} years`,
+        title: `Análisis de costes para ${installationLifeSpan} años`,
         width: 350,
         height: 200,
       });
@@ -245,28 +245,28 @@
     <InputMoney
       bind:value={energyCostPerKwhInput}
       icon="paid"
-      label="Energy cost per kWh"
+      label="Coste energético por kWh"
       onChange={updateConfig}
     />
 
     <InputMoney
       bind:value={solarIncentives}
       icon="redeem"
-      label="Solar incentives"
+      label="Incentivos solares"
       onChange={updateConfig}
     />
 
     <InputMoney
       bind:value={installationCostPerWatt}
       icon="request_quote"
-      label="Installation cost per Watt"
+      label="Coste de instalación por vatio"
       onChange={updateConfig}
     />
 
     <InputNumber
       bind:value={panelCapacityWattsInput}
       icon="bolt"
-      label="Panel capacity"
+      label="Capacidad del panel"
       suffix="Watts"
       onChange={updateConfig}
     />
@@ -277,7 +277,7 @@
         role={undefined}
         on:click={() => (showAdvancedSettings = !showAdvancedSettings)}
       >
-        {showAdvancedSettings ? 'Hide' : 'Show'} advanced settings
+        {showAdvancedSettings ? 'Ocultar' : 'Mostrar'} configuración avanzada
         <md-icon slot="icon">
           {showAdvancedSettings ? 'expand_less' : 'expand_more'}
         </md-icon>
@@ -289,22 +289,22 @@
         <InputNumber
           bind:value={installationLifeSpan}
           icon="date_range"
-          label="Installation lifespan"
-          suffix="years"
+          label="Vida útil de la instalación"
+          suffix="años"
           onChange={updateConfig}
         />
 
         <InputPercent
           bind:value={dcToAcDerateInput}
           icon="dynamic_form"
-          label="DC to AC conversion "
+          label="Conversión de CC a CA"
           onChange={updateConfig}
         />
 
         <InputRatio
           bind:value={efficiencyDepreciationFactor}
           icon="trending_down"
-          label="Panel efficiency decline per year"
+          label="Disminución anual de la eficiencia de los paneles"
           decrease
           onChange={updateConfig}
         />
@@ -312,14 +312,14 @@
         <InputRatio
           bind:value={costIncreaseFactor}
           icon="price_change"
-          label="Energy cost increase per year"
+          label="Aumento anual del coste de la energía"
           onChange={updateConfig}
         />
 
         <InputRatio
           bind:value={discountRate}
           icon="local_offer"
-          label="Discount rate per year"
+          label="Tasa de descuento anual"
           onChange={updateConfig}
         />
       </div>
@@ -348,7 +348,7 @@
         rows={[
           {
             icon: 'energy_savings_leaf',
-            name: 'Yearly energy',
+            name: 'Energía anual',
             value: showNumber(
               (solarPanelConfigs[configId]?.yearlyEnergyDcKwh ?? 0) * panelCapacityRatio,
             ),
@@ -356,13 +356,13 @@
           },
           {
             icon: 'speed',
-            name: 'Installation size',
+            name: 'Tamaño de la instalación',
             value: showNumber(installationSizeKw),
             units: 'kW',
           },
           {
             icon: 'request_quote',
-            name: 'Installation cost',
+            name: 'Coste de instalación',
             value: showMoney(installationCostTotal),
           },
           {
@@ -375,7 +375,7 @@
               'battery_5_bar',
               'battery_full',
             ][Math.floor(Math.min(Math.round(energyCovered * 100) / 100, 1) * 6)],
-            name: 'Energy covered',
+            name: 'Energía cubierta',
             value: Math.round(energyCovered * 100).toString(),
             units: '%',
           },
@@ -390,27 +390,27 @@
           rows={[
             {
               icon: 'wallet',
-              name: 'Cost without solar',
+              name: 'Coste sin energía solar',
               value: showMoney(totalCostWithoutSolar),
             },
             {
               icon: 'wb_sunny',
-              name: 'Cost with solar',
+              name: 'Coste con energía solar',
               value: showMoney(totalCostWithSolar),
             },
             {
               icon: 'savings',
-              name: 'Savings',
+              name: 'Ahorro',
               value: showMoney(savings),
             },
             {
               icon: 'balance',
-              name: 'Break even',
+              name: 'Punto de equilibrio',
               value:
                 breakEvenYear >= 0
                   ? `${breakEvenYear + new Date().getFullYear() + 1} in ${breakEvenYear + 1}`
                   : '--',
-              units: 'years',
+              units: 'años',
             },
           ]}
         />

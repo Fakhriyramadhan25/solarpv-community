@@ -37,7 +37,7 @@
     address: 'C. San Juan de Ribera, 1, 41009 Sevilla, Spanyol',
   };
   let location: google.maps.LatLng | undefined;
-  const zoom = 19;
+  const zoom = 17;
 
   // Coordinates for the heart of Sevilla
   const sevillaCoordinates = { lat: 37.3886, lng: -5.9823 };

@@ -158,7 +158,7 @@
     bind:section={expandedSection}
     {icon}
     {title}
-    subtitle={`Yearly energy: ${(
+    subtitle={`Energía anual: ${(
       (panelConfig.yearlyEnergyDcKwh * panelCapacityRatio) /
       1000
     ).toFixed(2)} MWh`}
@@ -175,10 +175,10 @@
       <NumberInput
         bind:value={panelCapacityWatts}
         icon="bolt"
-        label="Panel capacity"
+        label="Capacidad del panel"
         suffix="Watts"
       />
-      <InputBool bind:value={showPanels} label="Solar panels" />
+      <InputBool bind:value={showPanels} label="Paneles solares" />  
 
       <!-- <div class="grid justify-items-end">
         <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
@@ -198,7 +198,7 @@
         </div>
         <div slot="actions">
           <md-text-button role={undefined} on:click={() => apiResponseDialog.close()}>
-            Close
+            Cerrar
           </md-text-button>
         </div>
       </md-dialog>
@@ -214,25 +214,25 @@
           rows={[
             {
               icon: 'wb_sunny',
-              name: 'Annual sunshine',
+              name: 'Sol anual',
               value: showNumber(buildingInsights.solarPotential.maxSunshineHoursPerYear),
               units: 'hr',
             },
             {
               icon: 'square_foot',
-              name: 'Roof area',
+              name: 'Superficie del techo',
               value: showNumber(buildingInsights.solarPotential.wholeRoofStats.areaMeters2),
               units: 'm²',
             },
             {
               icon: 'solar_power',
-              name: 'Max panel count',
+              name: 'Número máximo de paneles',
               value: showNumber(buildingInsights.solarPotential.solarPanels.length),
               units: 'panels',
             },
             {
               icon: 'co2',
-              name: 'CO₂ savings',
+              name: 'Ahorro de CO₂',
               value: showNumber(buildingInsights.solarPotential.carbonOffsetFactorKgPerMwh),
               units: 'Kg/MWh',
             },
@@ -243,7 +243,7 @@
           <div class="flex justify-around">
             <Gauge
               icon="solar_power"
-              title="Panels count"
+              title="Recuento de paneles"
               label={showNumber(panelConfig.panelsCount)}
               labelSuffix={`/ ${showNumber(solarPanels.length)}`}
               max={solarPanels.length}
@@ -252,7 +252,7 @@
 
             <Gauge
               icon="energy_savings_leaf"
-              title="Yearly energy"
+              title="Energía anual"
               label={showNumber((panelConfig?.yearlyEnergyDcKwh ?? 0) * panelCapacityRatio)}
               labelSuffix="KWh"
               max={buildingInsights.solarPotential.solarPanelConfigs.slice(-1)[0]

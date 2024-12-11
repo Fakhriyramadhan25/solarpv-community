@@ -197,7 +197,7 @@
   });
 </script>
 
-{#if requestError}
+<!-- {#if requestError}
   <div class="error-container on-error-container-text">
     <Expandable section={title} icon="error" {title} subtitle={requestError.error.status}>
       <div class="grid place-items-center py-2 space-y-4">
@@ -265,9 +265,7 @@
       {/if}
       <div class="flex flex-row">
         <div class="grow" />
-        <!-- <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
-          API response
-        </md-filled-tonal-button> -->
+   
       </div>
 
       <md-dialog bind:this={apiResponseDialog}>
@@ -288,9 +286,9 @@
       </md-dialog>
     </div>
   </Expandable>
-{/if}
+{/if} -->
 
-<div class="absolute top-0 left-0 w-72">
+<!-- <div class="absolute top-0 left-0 w-72">
   {#if expandedSection == title && layer}
     <div class="m-2">
       <SummaryCard {icon} {title} rows={[{ name: dataLayerOptions[layerId], value: '' }]}>
@@ -393,4 +391,9 @@
       </div>
     {/if}
   </div>
-</div>
+</div> -->
+
+
+<!-- <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
+  API response
+</md-filled-tonal-button> -->
