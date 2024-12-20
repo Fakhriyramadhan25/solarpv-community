@@ -24,6 +24,12 @@
   export let suffix: string | undefined = undefined;
   export let precision = 2;
   export let onChange: (x: number) => void = () => {};
+
+  function formatNumber(x: number): string {
+    // Ensure the number is formatted with a dot as the decimal separator
+    return x.toFixed(precision).replace(',', '.');
+  }
+
 </script>
 
 <NumberInput
@@ -33,6 +39,6 @@
   {label}
   {suffix}
   {prefix}
-  put={(x) => x.toFixed(precision)}
+  put={formatNumber}
   {onChange}
 />

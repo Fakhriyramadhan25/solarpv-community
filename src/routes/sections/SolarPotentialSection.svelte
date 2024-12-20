@@ -58,13 +58,13 @@
   let monthlyAverageEnergyBill: number = 300;
   let energyCostPerKwh = 0.15;
   let panelCapacityWatts = 400;
-  let solarIncentives: number = 7000;
-  let installationCostPerWatt: number = 4.0;
+  let solarIncentives: number = 0;
+  let installationCostPerWatt: number = 1.0;
   let installationLifeSpan: number = 20;
 
   // Advanced settings
   let dcToAcDerate = 0.85;
-  let efficiencyDepreciationFactor = 0.995;
+  let efficiencyDepreciationFactor = 0.990;
   let costIncreaseFactor = 1.022;
   let discountRate = 1.04;
 
@@ -204,7 +204,7 @@
   bind:section={expandedSection}
   {icon}
   {title}
-  subtitle="Los valores son sólo marcadores de posición."
+  subtitle="Los valores son solo indicativos. Actualiza con tus propios valores."
   subtitle2="Actualícelos con sus propios valores."
   secondary
 >

@@ -35,7 +35,7 @@
   import NumberInput from '../components/InputNumber.svelte';
   import Gauge from '../components/Gauge.svelte';
 
-  export let expandedSection: string;
+  export let expandedSection: string = 'Análisis del edificio';
   export let buildingInsights: BuildingInsightsResponse | undefined;
   export let configId: number | undefined;
   export let panelCapacityWatts: number = 0;
@@ -47,7 +47,7 @@
   export let map: google.maps.Map;
 
   const icon = 'home';
-  const title = 'Punto final de Building Insights';
+  const title = 'Análisis del edificio';
 
   let requestSent = false;
   let requestError: RequestError | undefined;
@@ -178,7 +178,7 @@
         label="Capacidad del panel"
         suffix="Watts"
       />
-      <InputBool bind:value={showPanels} label="Paneles solares" />  
+      <InputBool bind:value={showPanels} label="Remover paneles solares" />  
 
       <!-- <div class="grid justify-items-end">
         <md-filled-tonal-button role={undefined} on:click={() => apiResponseDialog.show()}>
@@ -214,7 +214,7 @@
           rows={[
             {
               icon: 'wb_sunny',
-              name: 'Sol anual',
+              name: 'Horas de sol',
               value: showNumber(buildingInsights.solarPotential.maxSunshineHoursPerYear),
               units: 'hr',
             },
@@ -265,3 +265,12 @@
     </div>
   {/if}
 {/if}
+
+
+<style>
+  .horizontal-layout {
+    display: flex;
+    flex-direction: row; /* Align horizontally */
+    align-items: center; /* Center items vertically */
+  }
+</style>

@@ -138,8 +138,13 @@
       </div>
 
       <span class="pb-4 text-center outline-text label-small">
-        R2M solution - Energy Communities
+        Oficina de Transformación Comunitaria de Gran Vega de Sevilla
       </span>
+
+      <div class="flex flex-col items-center w-full mb-20">
+        <img src="/eu.png" alt="GitHub" width="400" height="80" />
+      </div>
+
     </div>
   </aside>
 </div>

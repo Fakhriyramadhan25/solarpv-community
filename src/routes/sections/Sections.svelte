@@ -31,13 +31,13 @@
   let buildingInsights: BuildingInsightsResponse | undefined;
 
   // State
-  let expandedSection: string = '';
+  let expandedSection = 'Análisis del edificio';
   let showPanels = true;
 
   // User settings
   let monthlyAverageEnergyBillInput = 300;
-  let panelCapacityWattsInput = 250;
-  let energyCostPerKwhInput = 0.15;
+  let panelCapacityWattsInput = 650;
+  let energyCostPerKwhInput = 0.13;
   let dcToAcDerateInput = 0.85;
 
   // Find the config that covers the yearly energy consumption.
