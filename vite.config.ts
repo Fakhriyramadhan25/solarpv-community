@@ -14,12 +14,30 @@
  limitations under the License.
  */
 
-import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vitest/config';
-
-export default defineConfig({
-  plugins: [sveltekit()],
-  test: {
-    include: ['src/**/*.{test,spec}.{js,ts}'],
-  },
-});
+ import { defineConfig } from 'vitest/config';
+ import { sveltekit } from '@sveltejs/kit/vite';
+ 
+ 
+ export default defineConfig({
+   plugins: [
+     sveltekit(),
+     {
+       name: 'kml-mime-type',
+       configureServer(server) {
+         server.middlewares.use((req, res, next) => {
+           // Cast `req` to ensure TypeScript knows `url` exists
+           const request = req as IncomingMessage & { url: string };
+ 
+           if (request.url?.endsWith('.kml')) {
+             res.setHeader('Content-Type', 'application/vnd.google-earth.kml+xml');
+           }
+           next();
+         });
+       },
+     },
+   ],
+   test: {
+     include: ['src/**/*.{test,spec}.{js,ts}'],
+   },
+ });
+ 
